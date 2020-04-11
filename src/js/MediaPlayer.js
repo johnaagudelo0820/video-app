@@ -1,20 +1,40 @@
 
 function MediaPlayer(config) {
-  this.media = config.el;
+  this.media = config.el
+  this.plugins = config.plugins || [];
+
+  this._initPlugins();
+}
+
+MediaPlayer.prototype._initPlugins = function() {
+  this.plugins.forEach(plugin => {
+    plugin.run(this)
+  });
 }
 
 MediaPlayer.prototype.play = function() {
-  if (this.media.paused) {
-    this.media.play();
-    return;
-  }
-  this.media.pause();
+  this.media.play()
 }
 
 MediaPlayer.prototype.pause = function() {
-  if (this.media.pause) {
-    this.media.pause();
+  this.media.pause()
+}
+
+MediaPlayer.prototype.mute = function() {
+  this.media.muted = true
+}
+
+MediaPlayer.prototype.unmute = function() {
+  this.media.muted = false
+}
+
+
+MediaPlayer.prototype.tooglePlay = function() {
+  if (this.media.paused) {
+    this.play()
+    return
   }
+  this.pause()
 }
 
 
