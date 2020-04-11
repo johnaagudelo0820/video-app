@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closures</title>
+</head>
+<body>
+  <a href="/exercises/">Go back</a>
+  <h1>open dev console</h1>
+  <script>
+    // closures
+    
+    // IIFE Inmedialy Invoke Function Expresion
+    /* (function() {
+      let color = 'green'
+
+      function printColor() {
+        console.log(color)
+      }
+
+      printColor()
+    })() */
+
+    // Funcione que regresan funciones
+ /*    function makeColorPrinter(color) {
+      let colorMessage = `The color is ${color}`
+
+      return function() {
+        console.log(colorMessage)
+      }
+    }
+    
+
+    let greenColorPrinter = makeColorPrinter('green')
+    console.log(greenColorPrinter()) */
+
+
+    function makeCounter(n) {
+      let count = n
+
+      return {
+        increase: function() {
+          count = count + 1
+        },
+        decrease: function() {
+          count = count - 1
+        },
+        getCount: function() {
+          return count
+        }
+      }
+    }
+
+    let counter = makeCounter(7);
+
+    console.log('The counter is: ', counter.getCount())
+    counter.increase();
+    console.log('The counter is: ', counter.getCount())
+    counter.decrease()
+    counter.decrease()
+    counter.decrease()
+    counter.decrease()
+    counter.decrease()
+    console.log('The counter is: ', counter.getCount())
+    counter.count = 0; // no se puede acceder directamente a la variable, se proteje
+    console.log('The counter is: ', counter.getCount())
+
+
+  </script>
+</body>
+</html>
