@@ -50,5 +50,4 @@ MediaPlayer.prototype.tooglePlay = function() {
   this.pause()
 }
 
-
 export default MediaPlayer;
