@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inheritance prototypal</title>
+  <pPor default los objetos en JavaScript tienen cómo prototipo a Object que es el punto de partida de todos los objetos, es el prototipo padre. Object es la raíz de todo, por lo tanto tiene un prototipo padre undefined.
+
+  Cuando se llama a una función o variable que no se encuentra en el mismo objeto que la llamó, se busca en toda la prototype chain hasta encontrarla o regresar undefined.
+  
+  La función hasOwnProperty sirve para verificar si una propiedad es parte del objeto o si viene heredada desde su prototype chain.</p>
+</head>
+<body>
+  <a href="/exercises/">Go back</a>
+  <h1>open dev console</h1>
+  <script>
+    function Hero(name) {
+      this.name = name
+    }
+    Hero.prototype.saludar = function() {
+      console.log(`Hols, soy ${this.name}`)
+    }
+
+    const zelda = new Hero('Zelda');
+
+    console.log(zelda.name)
+    console.log(zelda.saludar)
+
+    // propiedades heredadas
+    console.log(zelda.toString)
+    console.log(zelda.hasOwnProperty('name'))
+    console.log(zelda.hasOwnProperty('saludar'))
+
+   const prototypeZelda = Object.getPrototypeOf(zelda)
+   console.log(prototypeZelda === Hero.prototype)
+  </script>
+  </script>
+</body>
+</html>

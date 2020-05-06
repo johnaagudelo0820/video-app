@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call, Apply, Bind</title>
+  <p></p>
+</head>
+<body>
+  <a href="/exercises/">Go back</a>
+  <h1>open dev console</h1>
+  <ul>
+    <li class="call-to-action"><button>Aprender</button></li>
+    <li class="call-to-action"><button>Aprender Màs</button></li>
+    <li class="call-to-action"><button>!Nunca pares de aprender¡</button></li>
+  </ul>
+  <script>
+    // 'this' wirh call
+    function saludar() {
+      console.log(`Hola soy ${this.name} ${this.lastname}`)
+    }
+    const john = {
+      name: 'john',
+      lastname: 'Agudelo'
+    }
+    saludar.call(john)
+
+    function caminar(metros, direccion) {
+      console.log(`${this.name} camina ${metros} metros hacia ${direccion}`)
+    }
+    caminar.call(john, 10, 'norte') // primer argumento es el this, demas parametros
+
+    // 'this' wirh apply
+    caminar.apply(john, [50, 'arriba']) // primer valor es el this, luego array de los valores
+
+    // 'this' wirh bind
+    const saludaJonh = saludar.bind(john) // crea una nueva funcion con el this
+    saludaJonh()
+    const johnCamina = caminar.bind(john) // se puede poner valores iniciales caminar.bind(john, 9000) se llama johnCamina('arriba')  
+    johnCamina(8000, 'arriba')
+
+
+    // Implementar call in prototype Array
+    const buttons = document.getElementsByClassName('call-to-action')
+    /* buttons.forEach(button => {
+      button.onclick = () => alert('Nunca pares de aprender!')
+    }); */
+
+    Array.prototype.forEach.call(buttons, button => {
+      button.onclick = () => alert('Nunca pares de aprender!')
+    })
+  </script>
+</body>
+</html>

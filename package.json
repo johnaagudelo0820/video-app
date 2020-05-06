@@ -4,6 +4,7 @@
   "description": "App de videos",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --mode production",
     "start": "parcel src/index.html exercises/*.html exercises/*/*.html"
   },
   "repository": {
@@ -18,11 +19,22 @@
   },
   "homepage": "https://github.com/johnaagudelo0820/video-app#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
     "parcel-bundler": "^1.12.4",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "browserlist": [
     "last 1 Chrome version"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
 }

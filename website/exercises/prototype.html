@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prototype</title>
+  <p>En Javascript todo son objetos, no tenemos clases, no tenemos ese plano para crear objetos.
+
+    Todos los objetos “heredan” de un prototipo que a su vez hereda de otro prototipo y así sucesivamente creando lo que se llama la prototype chain.
+    
+    La keyword new crea un nuevo objeto que “hereda” todas las propiedades del prototype de otro objeto. No confundir prototype con proto que es sólo una propiedad en cada instancía que apunta al prototipo del que hereda.</p>
+</head>
+<body>
+  <a href="/exercises/">Go back</a>
+  <h1>open dev console</h1>
+  <script>
+    // 1 step
+    /* const zelda = {
+      name: 'Zelda'
+    }
+
+    zelda.saludar = function() {
+      console.log(`Hola soy ${this.name}`)
+    }
+
+    zelda.saludar()
+
+    const link = {
+      name: 'Link'
+    }
+
+    link.saludar = function() {
+      console.log(`Hola soy ${this.name}`)
+    }
+
+    link.saludar() */
+
+    // 2 step
+/*  function Hero(name) {
+      const hero = {
+        name: name
+      }
+
+      hero.saludar = function() {
+        console.log(`Hola soy ${this.name}`)
+      }
+
+      return hero;
+    }
+    const zelda = Hero('Zelda')
+    zelda.saludar()
+
+    const link = Hero('Link')
+    link.saludar() */
+
+    // 3 step
+    /* const heroMethods = {
+      saludar: function() {
+        console.log(`Me llamo ${this.name}`)
+      }
+    }
+
+    function Hero(name) {
+      const hero = {
+        name: name
+      }
+
+      hero.saludar = heroMethods.saludar
+      return hero;
+    }
+
+    const zelda = Hero('Zelda')
+    zelda.saludar()
+
+    const link = Hero('Link')
+    link.saludar() */
+
+    // const nuevoObjeto = Object.create(objeto)
+
+    // 4 step
+   /*  const heroMethods = {
+      saludar: function() {
+        console.log(`Soy superheroe ${this.name}`)
+      }
+    }
+
+    function Hero(name) {
+      const hero = Object.create(heroMethods)
+      hero.name = name
+      return hero;
+    }
+
+    const zelda = Hero('Zelda')
+    zelda.saludar()
+
+    const link = Hero('Link')
+    link.saludar() */
+
+
+    // 5 step
+    /* const heroMethods = {
+      saludar: function() {
+        console.log(`Soy superheroe ${this.name}`)
+      }
+    } */
+
+    /* function Hero(name) {
+      const hero = Object.create(Hero.prototype)
+      hero.name = name
+      return hero;
+    }
+
+    Hero.prototype.saludar = function() {
+      console.log(`Soy superheroe ${this.name}`)
+    }
+
+    const zelda = Hero('Zelda')
+    zelda.saludar()
+
+    const link = Hero('Link')
+    link.saludar() */
+
+    // 6 step
+    function Hero(name) {
+      // const hero = Object.create(Hero.prototype)
+      this.name = name
+      // return this;
+    }
+
+    Hero.prototype.saludar = function() {
+      console.log(`New hero ${this.name}`)
+    }
+
+    const zelda = new Hero('Zelda')
+    zelda.saludar()
+
+    const link = new Hero('Link')
+    link.saludar()
+  </script>
+</body>
+</html>
