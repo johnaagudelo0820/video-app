@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "parcel src/index.html exercises/*.html exercises/*/*.html"
+    "start": "webpack-dev-server --open --mode development",
+    "exercises": "parcel src/index.html exercises/*.html exercises/*/*.html"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,24 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
     "parcel-bundler": "^1.12.4",
+    "sass-loader": "^8.0.2",
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   },
   "browserlist": [
     "last 1 Chrome version"
@@ -36,5 +48,9 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  }
+  },
+  "browserslist": [
+    "last 1 chrome version",
+    "last 1 firefox version"
+  ]
 }
