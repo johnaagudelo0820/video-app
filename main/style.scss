@@ -1,5 +1,5 @@
 $white: white;
-$purple: #8F57FD;
+$main-color: #8F57FD;
 
 .flex {
   display: flex;
@@ -13,11 +13,11 @@ $purple: #8F57FD;
 
 body {
   margin: 0;
-  background-color: $purple;
+  background-color: $main-color;
   font-family: 'Muli', sans-serif;
 }
 .header {
-  background-color: $purple;
+  background-color: $main-color;
   width: 100%;
   height: 80px;
   @include flex;
@@ -114,7 +114,7 @@ body {
   width: 200px;
   height: 250px;
   border-radius: 20px;
-  background-color: $purple;
+  background-color: $main-color;
   overflow: hidden;
   margin-right: 10px;
   display: inline-block;

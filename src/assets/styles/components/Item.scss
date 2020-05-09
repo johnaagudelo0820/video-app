@@ -1,12 +1,10 @@
-
-$white: white;
-$purple: #8F57FD;
+@import '../Vars.scss';
 
 .carousel-item {
   width: 200px;
   height: 250px;
   border-radius: 20px;
-  background-color: $purple;
+  background-color: $main-color;
   overflow: hidden;
   margin-right: 10px;
   display: inline-block;
