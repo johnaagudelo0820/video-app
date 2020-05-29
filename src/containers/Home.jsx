@@ -1,30 +1,26 @@
 import React from 'react'
-import '../assets/styles/App.scss'
+import { connect } from 'react-redux'
 
-import { Header } from '../components/Header'
+import '../assets/styles/App.scss'
 import { Search } from '../components/Search'
 import { Categories } from '../components/Categories'
 import { Carousel } from '../components/Carousel'
 import { Item } from '../components/Item'
-import { Footer } from '../components/Footer'
 
-import { useInitialState } from '../hooks/useInitialState'
 
-const API = 'http://localhost:3000/initalState';
-
-export const Home = () => {
-  const videos = useInitialState(API, {
+const Home = ({ mylist, trends, originals }) => {
+  /* onst videos = useInitialState(API, {
     'mylist': [],
     'trends': [],
     'originals': [],
-  });
+  }); */
 
   return (
     <>
       <Search />
 
       {
-        videos.mylist.length > 0 &&
+        mylist.length > 0 &&
           <Categories title="Tendencias">
             <Carousel>
               {videos.mylist.map(item => (
@@ -36,10 +32,10 @@ export const Home = () => {
     
     
       {
-        videos.trends.length > 0 &&
+        trends.length > 0 &&
           <Categories title="Tendencias">
             <Carousel>
-              {videos.trends.map(item => (
+              {trends.map(item => (
                 <Item key={item.id} {...item}/>
               ))}
             </Carousel>
@@ -47,10 +43,10 @@ export const Home = () => {
       }
 
       {
-        videos.originals.length > 0 &&
+        originals.length > 0 &&
           <Categories title="Originales de Platzi Video">
             <Carousel>
-              {videos.originals.map(item => (
+              {originals.map(item => (
                 <Item key={item.id} {...item}/>
               ))}
             </Carousel>
@@ -60,3 +56,11 @@ export const Home = () => {
     </>
   )
 }
+
+const mapStateToProps = state => ({
+  mylist: state.mylist,
+  trends: state.trends,
+  originals: state.originals,
+})
+
+export default connect(mapStateToProps, null)(Home)
