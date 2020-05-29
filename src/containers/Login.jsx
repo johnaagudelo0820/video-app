@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import google from '../assets/static/google-icon.webp'
 import twitter from '../assets/static/twitter-icon.webp'
@@ -25,7 +26,10 @@ export const Login = () => (
         <div><img src={twitter} alt="Twitter" />Inicia sesión con Twitter</div>
       </section>
       <p className="login__container--register">
-        No tienes ninguna cuenta <a href="">Regístrate</a>
+        No tienes ninguna cuenta
+        <Link to="/signup">
+          Regístrate
+        </Link>
       </p>
     </section>
   </section>
