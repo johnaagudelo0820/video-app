@@ -5,7 +5,7 @@ import '../assets/styles/App.scss'
 import { Search } from '../components/Search'
 import { Categories } from '../components/Categories'
 import { Carousel } from '../components/Carousel'
-import { Item } from '../components/Item'
+import Item from '../components/Item'
 
 
 const Home = ({ mylist, trends, originals }) => {
@@ -23,7 +23,7 @@ const Home = ({ mylist, trends, originals }) => {
         mylist.length > 0 &&
           <Categories title="Tendencias">
             <Carousel>
-              {videos.mylist.map(item => (
+              {mylist.map(item => (
                 <Item key={item.id} {...item}/>
               ))}
             </Carousel>
