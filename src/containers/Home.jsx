@@ -1,18 +1,18 @@
 import React from 'react'
-import './assets/styles/App.scss'
+import '../assets/styles/App.scss'
 
-import { Header } from './components/Header'
-import { Search } from './components/Search'
-import { Categories } from './components/Categories'
-import { Carousel } from './components/Carousel'
-import { Item } from './components/Item'
-import { Footer } from './components/Footer'
+import { Header } from '../components/Header'
+import { Search } from '../components/Search'
+import { Categories } from '../components/Categories'
+import { Carousel } from '../components/Carousel'
+import { Item } from '../components/Item'
+import { Footer } from '../components/Footer'
 
-import { useInitialState } from './hooks/useInitialState'
+import { useInitialState } from '../hooks/useInitialState'
 
 const API = 'http://localhost:3000/initalState';
 
-export const App = () => {
+export const Home = () => {
   const videos = useInitialState(API, {
     'mylist': [],
     'trends': [],
@@ -20,8 +20,7 @@ export const App = () => {
   });
 
   return (
-    <div className="App">
-      <Header />
+    <>
       <Search />
 
       {
@@ -57,8 +56,7 @@ export const App = () => {
             </Carousel>
           </Categories>
       }
-    
-      <Footer />
-    </div>
+  
+    </>
   )
 }

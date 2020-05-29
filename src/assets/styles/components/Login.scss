@@ -1,23 +1,7 @@
-body {
-  margin: 0;
-  background-color: #8F57FD;
-  font-family: 'Muli', sans-serif;
-}
-.header {
-  background-color: #21C08B;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header__img {
-  width: 200px;
-  margin-top: 10px;
-  margin-left: 20px;
-}
+@import '../Vars.scss';
+
 .login {
-  background: linear-gradient(#21C08B, #8F57FD);
+  background: linear-gradient($secondary-color, $main-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,9 +11,9 @@ body {
 }
 .login__container {
   background-color: rgba(255, 255, 255, .1);
-  border: 2px solid white;
+  border: 2px solid $white;
   border-radius: 40px;
-  color: white;
+  color: $white;
   padding: 60px 68px 40px;
   min-height: 700px;
   width: 300px;
@@ -45,13 +29,13 @@ body {
   font-size: 14px;
 }
 .login__container--remember-me {
-  color: white;
+  color: $white;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
 .login__container--remember-me a{
-  color: white;
+  color: $white;
   font-size: 14px;
   text-decoration: none;
 }
@@ -73,30 +57,14 @@ body {
 }
 .login__container--register a{
   font-size: 16px;
-  color: white;
+  color: $white;
   font-weight: bold;
   text-decoration: none;
 }
 .login__container--register a:hover{
   text-decoration: underline;
 }
-.input{
-  background-color: transparent;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 2px solid white;
-  outline: none;
-  font-family: 'Muli', sans-serif;
-  margin-bottom: 20px;
-  padding: 0px 20px;
-  color: white;
-  height: 50px;
-  font-size: 16px;
-}
-::placeholder {
-  color: white;
-}
+
 .button {
   background-color: rgba(255, 255, 255, .1);
   border-radius: 25px;
@@ -109,34 +77,4 @@ body {
   height: 50px;
   letter-spacing: 1px;
   margin: 10px 0px;
-}
-.footer {
-  display: flex;
-  align-items: center;
-  height: 100px;
-  width: 100%;
-  background-color: #8F57FD;
-}
-.footer a {
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  text-decoration: none;
-  padding-left: 30px;
-}
-.footer a:hover {
-  text-decoration: underline;
-}
-
-@media only screen and (max-width: 600px) {
-  .login__container {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    width: 100%;
-  }
-  .footer {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 }
