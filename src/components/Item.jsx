@@ -6,14 +6,14 @@ import deleteIcon from '../assets/static/deleteIcon.webp'
 import { setFavorite, deleteFavorite } from '../actions'
 import '../assets/styles/components/Item.scss'
 
-const Item = ({ id, cover, title, year, contentRating, duration, ...props }) => {
+const Item = ({ id, cover, title, year, contentRating, duration, isList, ...props }) => {
 
   const handlerSetFavorite = () => {
     props.setFavorite({ id, cover, title, year, contentRating, duration })
   }
 
-  const handlerDeleteFavorite = (itemId) => {
-    props.deleteFavorite(itemId)
+  const handlerDeleteFavorite = () => {
+    props.deleteFavorite(id)
   }
 
   return (
@@ -22,16 +22,19 @@ const Item = ({ id, cover, title, year, contentRating, duration, ...props }) => 
       <div className="carousel-item__details">
         <div>
           <img src="https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="play"/>
-          <img
-            src="https://img.icons8.com/flat_round/64/000000/play--v1.png"
-            alt="plus"
-            onClick={handlerSetFavorite}
-          />
-          <img
-            src={deleteIcon}
-            alt="delete"
-            onClick={() => handlerDeleteFavorite(id)}
-          />
+          {isList ?
+            <img
+              src={deleteIcon}
+              alt="delete"
+              onClick={handlerDeleteFavorite}
+            />
+            :
+            <img
+              src="https://img.icons8.com/flat_round/64/000000/play--v1.png"
+              alt="plus"
+              onClick={handlerSetFavorite}
+            />
+          }          
         </div>
         <p className="carousel-item__details--title">{title}</p>
         <p className="carousel-item__details--subtitle">
