@@ -2,13 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { setFavorite } from '../actions'
+import deleteIcon from '../assets/static/deleteIcon.webp'
+import { setFavorite, deleteFavorite } from '../actions'
 import '../assets/styles/components/Item.scss'
 
-const Item = ({ cover, title, year, contentRating, duration, setFavorite }) => {
+const Item = ({ id, cover, title, year, contentRating, duration, ...props }) => {
 
   const handlerSetFavorite = () => {
-    setFavorite({ cover, title, year, contentRating, duration, setFavorite })
+    props.setFavorite({ id, cover, title, year, contentRating, duration })
+  }
+
+  const handlerDeleteFavorite = (itemId) => {
+    props.deleteFavorite(itemId)
   }
 
   return (
@@ -21,6 +26,11 @@ const Item = ({ cover, title, year, contentRating, duration, setFavorite }) => {
             src="https://img.icons8.com/flat_round/64/000000/play--v1.png"
             alt="plus"
             onClick={handlerSetFavorite}
+          />
+          <img
+            src={deleteIcon}
+            alt="delete"
+            onClick={() => handlerDeleteFavorite(id)}
           />
         </div>
         <p className="carousel-item__details--title">{title}</p>
@@ -42,6 +52,7 @@ Item.propTypes = {
 
 const mapDispatchToProps = {
   setFavorite,
+  deleteFavorite,
 }
 
 export default connect(null, mapDispatchToProps)(Item)
