@@ -9,16 +9,9 @@ import Item from '../components/Item'
 
 
 const Home = ({ mylist, trends, originals }) => {
-  /* onst videos = useInitialState(API, {
-    'mylist': [],
-    'trends': [],
-    'originals': [],
-  }); */
-
   return (
     <>
       <Search />
-
       {
         mylist.length > 0 &&
           <Categories title="Tendencias">

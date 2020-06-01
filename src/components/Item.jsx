@@ -1,8 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import deleteIcon from '../assets/static/deleteIcon.webp'
+import addIcon from '../assets/static/plus-icon.png'
+import playIcon from '../assets/static/play-icon.png'
 import { setFavorite, deleteFavorite } from '../actions'
 import '../assets/styles/components/Item.scss'
 
@@ -21,7 +24,12 @@ const Item = ({ id, cover, title, year, contentRating, duration, isList, ...prop
       <img className="carousel-item__img" src={cover} alt={title}/>
       <div className="carousel-item__details">
         <div>
-          <img src="https://img.icons8.com/flat_round/64/000000/play--v1.png" alt="play"/>
+          <Link to={`/player/${id}`}>
+            <img
+              src={playIcon}
+              alt="play"
+            />
+          </Link>
           {isList ?
             <img
               src={deleteIcon}
@@ -30,7 +38,7 @@ const Item = ({ id, cover, title, year, contentRating, duration, isList, ...prop
             />
             :
             <img
-              src="https://img.icons8.com/flat_round/64/000000/play--v1.png"
+              src={addIcon}
               alt="plus"
               onClick={handlerSetFavorite}
             />
